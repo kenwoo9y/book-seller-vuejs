@@ -1,8 +1,33 @@
-import Vue from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-Vue.config.productionTip = false
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+global.jQuery = require('jquery');
+const $ = global.jQuery;
+window.$ = $;
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faDesktop,
+  faHome, faLaptop, faMobileAlt, faTabletAlt,
+  faUserCircle,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(faHome,
+  faUserCircle,
+  faDesktop,
+  faLaptop,
+  faMobileAlt,
+  faTabletAlt
+);
+
+createApp(App)
+    .use(store)
+    .use(router)
+    .component("font-awesome-icon", FontAwesomeIcon)
+    .mount("#app");
