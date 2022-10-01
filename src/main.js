@@ -6,6 +6,8 @@ import store from "./store";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import './global.css';
+
 global.jQuery = require('jquery');
 const $ = global.jQuery;
 window.$ = $;
